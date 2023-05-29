@@ -1,0 +1,35 @@
+@import "./base.css";
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0003;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+#app {
+  min-height: 100vh;
+  font-weight: normal;
+  overflow: hidden;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: #60646f;
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: #eff1f7;
+    color: #3c6eff;
+  }
+}

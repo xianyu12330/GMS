@@ -1,5 +1,6 @@
 package com.example.gms;
 
+import com.example.gms.dao.LoginMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +11,10 @@ import sun.applet.Main;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Main.class)//启动类类模板
 public class UserText {
-
+@Autowired
+    LoginMapper loginMapper;
     @Test
     public void Test(){
-//        List<User> allUser = userService.getAllUser();
-//        for (User u:
-//             allUser) {
-//            System.out.println(u.toString());
-//        }
-        System.out.println(111);
+//
     }
 }

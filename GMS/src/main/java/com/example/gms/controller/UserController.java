@@ -51,4 +51,19 @@ public class UserController {
         String msg = delete==1?"删除成功！":"不存在该用户，请重新操作！";
         return new Result(delete ==1?Code.DELETE_SUC :Code.DELETE_ERR,msg);
     }
+    @GetMapping("/userByName/{name}")
+    public Result GetuserByname(@PathVariable String name){
+        User user = userMapper.userByName(name);
+        Result result = new Result(Code.SEARCH_SUC,"查询成功！");
+        result.addData(user);
+        return result;
+    }
+    @PutMapping("/updateRole/{id}/{role}")
+    public Result updateRole(@PathVariable long id,@PathVariable int role){
+        boolean flag= userMapper.updateRole(id, role);
+        Result result = new Result(flag ? Code.UPDATA_SUC : Code.UPDATA_ERR, flag ? "修改成功！" : "修改失败，请重试！");
+        return  result;
+    }
+
+
 }

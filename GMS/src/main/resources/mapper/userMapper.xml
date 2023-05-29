@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.gms.dao.UserMapper">
+<!--    <select id="getRoleByName" resultType="int">-->
+<!--        select role from user where name =#{name}-->
+<!--    </select>-->
+
+    <select id="userByName" resultType="com.example.gms.entity.User">
+        select  * from user where name = #{name}
+    </select>
+
+
+
+    <select id="getRoleByName" resultType="int">
+        select role from user where name = #{name}
+    </select>
+
+
+    <update id="updateRole">
+        update user set role = #{role} where user_id = #{user_id}
+    </update>
+</mapper>
