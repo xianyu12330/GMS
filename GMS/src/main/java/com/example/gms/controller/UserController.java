@@ -1,5 +1,6 @@
 package com.example.gms.controller;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.gms.dao.UserMapper;
 import com.example.gms.entity.User;
 import com.example.gms.result.Code;
@@ -64,6 +65,14 @@ public class UserController {
         Result result = new Result(flag ? Code.UPDATA_SUC : Code.UPDATA_ERR, flag ? "修改成功！" : "修改失败，请重试！");
         return  result;
     }
-
+    @PutMapping("/changePassword/{cardNum}/{password}")
+    public Result changePass(@PathVariable String cardNum ,@PathVariable String password){
+        UpdateWrapper updateWrapper = new UpdateWrapper();
+        updateWrapper.eq("cardNum",cardNum);
+        updateWrapper.set("password",password);
+        int update = userMapper.update(null, updateWrapper);
+        Result result = new Result(update==1 ? Code.UPDATA_SUC : Code.UPDATA_ERR, update==1 ? "修改成功！" : "修改失败，请重试！");
+        return result;
+    }
 
 }

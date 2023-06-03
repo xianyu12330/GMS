@@ -17,6 +17,7 @@
       <div class="logout">
         <div class="head-img"></div>
         <div class="lgo">
+          <el-button type="info" @click="changePassword" round size="small">| -> 修改密码 </el-button>
           <el-button type="info" @click="loginOut" round size="small">| -> 退出 </el-button>
         </div>
       </div>
@@ -52,6 +53,9 @@ const loginOut = () => {
     type: "success",
   });
   router.push({ name: "login" });
+};
+const changePassword = () => {
+  router.push({ name: "changePassword" });
 };
 </script>
  

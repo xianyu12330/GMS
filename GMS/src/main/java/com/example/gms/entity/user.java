@@ -25,4 +25,7 @@ public class User {
     private int role;
     @TableField("sex")
     private String sex;
+
+    @TableField("cardNum")
+    private String cardNum;
 }

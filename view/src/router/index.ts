@@ -15,20 +15,58 @@ export const homeChildren: Array<RouteRecordRaw> = [
       name: '首页',
       role: ['0', '1', '2']
     }
+
   },
   {
-
-    path: 'user',
-    name: 'user',
-    component: () => import('../views/system/user/index.vue'),
-    // path: 'system-setting',
-    // redirect: { name:'institution-professional'},
+    path: 'Myborrow',
+    name: 'Myborrow',
     meta: {
-      name: '用户管理',
+      name: '我的租用',
       role: ['0', '1', '2']
-
-    },
+    }, children: [
+      {
+        path: 'borrowList',
+        name: 'borrowList',
+        component: () => import('../views/system/borrow/Myborrow.vue'),
+        meta: {
+          name: '列表',
+          role: ['0', '1', '2']
+        }
+      },
+      {
+        path: 'borrowEquip',
+        name: 'borrowEquip',
+        component: () => import('../views/system/borrow/borrowEquip.vue'),
+        meta: {
+          name: '租借器材详情',
+          role: [NaN]
+        }
+      },
+      {
+        path: 'borrowAdd',
+        name: 'borrowAdd',
+        component: () => import('../views/system/borrow/borrowAdd.vue'),
+        meta: {
+          name: '租借场地详情',
+          role: [NaN]
+        }
+      },
+    ]
   },
+
+  {
+
+
+    path: 'changePassword',
+    name: 'changePassword',
+    component: () => import('../views/system/user/changePassword.vue'),
+    meta: {
+      name: '修改密码',
+      role: [NaN]
+    }
+
+  },
+
   {
     path: 'record',
     redirect: { name: 'getRecordList' },
@@ -46,7 +84,104 @@ export const homeChildren: Array<RouteRecordRaw> = [
           role: ['0', '1', '2']
         }
       },
+      {
 
+        path: 'user',
+        name: 'user',
+        component: () => import('../views/system/user/index.vue'),
+        meta: {
+          name: '用户管理',
+          role: ['0', '1', '2']
+
+        },
+      },
+
+    ]
+  },
+
+  {
+    path: 'equipment',
+    redirect: { name: 'getequipmentList' },
+    meta: {
+      name: '器材管理',
+      role: ['0', '1', '2']
+    },
+    children: [
+      {
+        path: 'addEquipment',
+        name: 'addEquipment',
+        component: () => import('../views/system/equipment/equipment.vue'),
+        meta: {
+          name: '新购器材',
+          role: ['0', '1', '2']
+        }
+      },
+      {
+        path: 'manageEquipment',
+        name: 'manageEquipment',
+        component: () => import('../views/system/equipment/manageEquipment.vue'),
+        meta: {
+          name: '器材列表',
+          role: ['0', '1', '2']
+        }
+      },
+      {
+        path: 'bookEquipment',
+        name: 'bookEquipment',
+        component: () => import('../views/system/equipment/bookEquipment.vue'),
+        meta: {
+          name: '器材租用',
+          role: [NaN]
+        }
+      },
+      {
+        path: 'agreeEquipment',
+        name: 'agreeEquipment',
+        component: () => import('../views/system/equipment/agreeEquipment.vue'),
+        meta: {
+          name: '审核器材',
+          role: ['1']
+        }
+      },
+
+    ]
+  },
+
+  {
+    path: 'address',
+    redirect: { name: 'AddressList' },
+    meta: {
+      name: '场地操作',
+      role: ['0', '1', '2']
+    },
+    children: [
+      {
+        path: 'addAddress',
+        name: 'addAddress',
+        component: () => import('../views/system/Address/addAddress.vue'),
+        meta: {
+          name: '添加场地',
+          role: ['0', '1', '2']
+        }
+      },
+      {
+        path: 'AddressList',
+        name: 'AddressList',
+        component: () => import('../views/system/Address/AddressList.vue'),
+        meta: {
+          name: '场地列表',
+          role: ['0', '1', '2']
+        }
+      },
+      {
+        path: 'AddressInside',
+        name: 'AddressInside',
+        component: () => import('../views/system/Address/addressInside.vue'),
+        meta: {
+          name: '场地内容',
+          role: [NaN]
+        }
+      }
     ]
   },
 
@@ -59,14 +194,24 @@ export const homeChildren: Array<RouteRecordRaw> = [
     },
     children: [
       {
-        path: 'addRecord',
-        name: 'addRecord',
-        component: () => import('../views/system/record/recordTab/index.vue'),
+        path: 'addGame',
+        name: 'addGame',
+        component: () => import('../views/system/Game/addGame.vue'),
         meta: {
-          name: '赛事预约',
+          name: '赛事创建',
           role: ['0', '1', '2']
         }
       },
+      {
+        path: 'checkGame',
+        name: 'checkGame',
+        component: () => import('../views/system/Game/Gamelist.vue'),
+        meta: {
+          name: '赛事查询',
+          role: ['0', '1', '2']
+        }
+
+      }
 
     ]
   },

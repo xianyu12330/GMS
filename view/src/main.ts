@@ -13,10 +13,10 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
 const app = createApp(App)
 
-app.use(ElementPlus,{
-    locale:zhCn
+app.use(ElementPlus, {
+  locale: zhCn
 })
 app.use(createPinia())
 app.use(router)
+router.isReady().then(() => app.mount('#app'))
 
-app.mount('#app')

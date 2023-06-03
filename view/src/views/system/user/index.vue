@@ -72,8 +72,6 @@ const updataMsg = () => {
 
 const getList = () => {
   getUserList().then((res) => {
-    console.log(res.data);
-
     list.value = res.data[0];
 
     updataMsg();

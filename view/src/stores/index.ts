@@ -12,11 +12,13 @@ export const useUser = defineStore('user', () => {
     password: "",
     name: "",
     role: "",
+    cardNum: ""
   })
   function setUserInformation(user: any) {
     userInformation.password = user.password
     userInformation.name = user.name
     userInformation.role = user.role
+    userInformation.cardNum = user.cardNum
   }
   function getInformation() {
     return userInformation;

@@ -53,6 +53,12 @@ export function updateRole(id: any, role: any): Promise<AxiosResponse<Result["da
     method: 'put'
   })
 }
+export function changePassword(cardNum: any, password: any): Promise<AxiosResponse<Result["data"], any>> {
+  return request({
+    url: `/user/changePassword/${cardNum}/${password}`,
+    method: 'put'
+  })
+}
 export default {
   getUserList,
   userById,
@@ -61,5 +67,6 @@ export default {
   updateUser,
   getRole,
   userByName,
-  updateRole
+  updateRole,
+  changePassword
 }
